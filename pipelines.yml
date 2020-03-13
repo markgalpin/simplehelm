@@ -46,8 +46,8 @@ pipelines:
         execution:
           onExecute:
             - pushd $res_simplehelmRepo_docker_resourcePath
-            - docker build -t trriplejay/simplehelm:$run_number .
-            - docker push trriplejay/simplehelm:$run_number
+            - docker build -t 35.224.208.129:8082/docker-local/simplehelm:$run_number .
+            - docker push 35.224.208.129:8082/docker-local/simplehelm:$run_number
             - write_output simplehelmDockerImage "imageTag=$run_number"
 
       - name: publish_helm_chart
