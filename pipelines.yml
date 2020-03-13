@@ -2,33 +2,33 @@ resources:
   - name: simplehelmChart
     type: HelmChart
     configuration:
-      sourceArtifactory: art
-      repository: simplecharts
+      sourceArtifactory: demoArt
+      repository: helm
       chart: simplehelm
       version: 0.0.0
 
   - name: simplehelmRepo_chart
     type: GitRepo
     configuration:
-      gitProvider: john_bbs
-      path: ~johns/simplehelm
+      gitProvider: sdemo_github
+      path: markgalpin/simplehelm
       files:
         include: "simplehelm.*"
 
   - name: simplehelmRepo_docker
     type: GitRepo
     configuration:
-      gitProvider: john_bbs
-      path: ~johns/simplehelm
+      gitProvider: sdemo_github
+      path: markgalpin/simplehelm
       files:
         include: "Dockerfile|server.js|package.json"
 
   - name: simplehelmDockerImage
     type: Image
     configuration:
-      registry: tr_docker
+      registry: demoArt
 
-      imageName: trriplejay/simplehelm
+      imageName: markg/simplehelm
       imageTag: latest
 
 pipelines:
@@ -63,7 +63,7 @@ pipelines:
         type: HelmDeploy
         configuration:
           integrations:
-            - name: tr_kubernetes
+            - name: testkube
           inputResources:
             - name: simplehelmChart
             - name: simplehelmDockerImage
