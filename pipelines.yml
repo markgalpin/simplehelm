@@ -74,5 +74,6 @@ pipelines:
             - values.yaml
         execution:
           onStart:
-            - gcloud auth activate-service-account pipelinesdemo1@jfrog-gc-mp.iam.gserviceaccount.com --key-file=$int_jfroggcmpkey_jsonKey
+            - echo $int_jfroggcmpkey_jsonKey > mykey.json
+            - gcloud auth activate-service-account pipelinesdemo1@jfrog-gc-mp.iam.gserviceaccount.com --key-file=mykey.json
 
