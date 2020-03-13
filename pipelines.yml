@@ -69,7 +69,7 @@ pipelines:
             - name: simplehelmChart
             - name: simplehelmDockerImage1
           releaseName: simplehelm
-          flags: "--namespace dev --client-only=false"
+          flags: "--namespace dev"
           valueFilePaths:
             - values.yaml
         execution:
