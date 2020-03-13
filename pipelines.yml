@@ -64,6 +64,7 @@ pipelines:
         configuration:
           integrations:
             - name: testkube
+            - name: jfroggcmpkey
           inputResources:
             - name: simplehelmChart
             - name: simplehelmDockerImage1
@@ -73,11 +74,5 @@ pipelines:
             - values.yaml
         execution:
           onStart:
-            - chmod 1777 /tmp
-            - echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-            - sudo apt-get install apt-transport-https ca-certificates gnupg
-            - curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-            - sudo apt-get --allow-unauthenticated update
-            - sudo apt-get --allow-unauthenticated install google-cloud-sdk kubectl
-            - which gcloud
+            - gcloud auth activate-service-account pipelinesdemo1@jfrog-gc-mp.iam.gserviceaccount.com --key-file=$int_jfroggcmpkey_jsonKey
 
