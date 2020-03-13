@@ -27,7 +27,7 @@ resources:
     type: Image
     configuration:
       registry: demoArt
-
+      sourceRepository: docker-local
       imageName: markg/simplehelm
       imageTag: latest
 
