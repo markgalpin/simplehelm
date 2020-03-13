@@ -10,7 +10,7 @@ resources:
   - name: simplehelmRepo_chart
     type: GitRepo
     configuration:
-      gitProvider: sdemo_github
+      gitProvider: markg_github
       path: markgalpin/simplehelm
       files:
         include: "simplehelm.*"
