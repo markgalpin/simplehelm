@@ -42,7 +42,7 @@ pipelines:
           inputResources:
             - name: simplehelmRepo_docker
           outputResources:
-            - name: simplehelmDockerImage
+            - name: simplehelmDockerImage1
         execution:
           onExecute:
             - pushd $res_simplehelmRepo_docker_resourcePath
