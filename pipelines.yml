@@ -72,6 +72,3 @@ pipelines:
           releaseName: simplehelm
           valueFilePaths:
             - values.yaml
-        execution:
-          onStart:
-            - echo $int_jfroggcmpkey_jsonKey > mykey.json
