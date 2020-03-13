@@ -76,5 +76,9 @@ pipelines:
           onStart:
             - echo $int_jfroggcmpkey_jsonKey > mykey.json
             - gcloud auth activate-service-account pipelinesdemo1@jfrog-gc-mp.iam.gserviceaccount.com --key-file=mykey.json
-            - curl -fL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | sh
+            - curl -s -O https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz
+            - tar -zxvf helm-v3.1.2-linux-amd64.tar.gz && mv linux-amd64/helm /usr/local/bin/helm
+            - cp /usr/local/bin/helm /usr/local/bin/helm3
+            - helm version
+            - which helm
 
