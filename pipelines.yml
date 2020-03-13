@@ -77,4 +77,6 @@ pipelines:
             - echo $int_jfroggcmpkey_jsonKey > mykey.json
             - gcloud auth activate-service-account pipelinesdemo1@jfrog-gc-mp.iam.gserviceaccount.com --key-file=mykey.json
             - helm init --tiller-namespace dev
-
+          onExecute:
+            - echo $int_jfroggcmpkey_jsonKey > mykey.json
+            - gcloud auth activate-service-account pipelinesdemo1@jfrog-gc-mp.iam.gserviceaccount.com --key-file=mykey.json
