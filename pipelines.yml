@@ -38,7 +38,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: tr_docker
+            - name: demoArt
           inputResources:
             - name: simplehelmRepo_docker
           outputResources:
