@@ -23,7 +23,7 @@ resources:
       files:
         include: "Dockerfile|server.js|package.json"
 
-  - name: simplehelmDockerImage
+  - name: simplehelmDockerImage1
     type: Image
     configuration:
       registry: demoArt
@@ -48,7 +48,7 @@ pipelines:
             - pushd $res_simplehelmRepo_docker_resourcePath
             - docker build -t 35.224.208.129:8082/docker-local/simplehelm:$run_number .
             - jfrog rt docker push 35.224.208.129:8082/docker-local/simplehelm:$run_number docker-local --build-name=$pipeline_name --build-number=$run_number
-            - write_output simplehelmDockerImage "imageTag=$run_number"
+            - write_output simplehelmDockerImage1 "imageTag=$run_number"
 
       - name: publish_helm_chart
         type: HelmPublish
@@ -66,7 +66,7 @@ pipelines:
             - name: testkube
           inputResources:
             - name: simplehelmChart
-            - name: simplehelmDockerImage
+            - name: simplehelmDockerImage1
           releaseName: simplehelm
           flags: "--namespace dev"
           valueFilePaths:
