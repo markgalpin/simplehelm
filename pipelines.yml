@@ -18,7 +18,7 @@ resources:
   - name: simplehelmRepo_docker
     type: GitRepo
     configuration:
-      gitProvider: sdemo_github
+      gitProvider: markg_github
       path: markgalpin/simplehelm
       files:
         include: "Dockerfile|server.js|package.json"
